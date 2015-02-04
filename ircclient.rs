@@ -34,8 +34,8 @@ fn main(){
 	  if data.contains("PING "){
         let hashbit = data.split_str("PING ").nth(1).unwrap().trim();      
         let packet: String = format!("PONG {}\r\n", hashbit);
-	    sock.write_all(packet.as_bytes());
-	    sock.flush();
+        sock.write_all(packet.as_bytes());
+        sock.flush();
 	  }
 	  if data.contains(" 376 "){
 	    sock.write_all(format!("JOIN {}\r\n", chanx).as_bytes());
